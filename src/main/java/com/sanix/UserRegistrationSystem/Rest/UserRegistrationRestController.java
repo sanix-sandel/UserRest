@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -36,5 +37,13 @@ public class UserRegistrationRestController {
     public ResponseEntity<UserDTO> createUser(@RequestBody final UserDTO user){
         userJpaRepository.save(user);
         return new ResponseEntity<UserDTO>(user, HttpStatus.CREATED);
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity <Optional<UserDTO>> getUserById(@PathVariable("id") final Long id){
+
+        Optional <UserDTO> user=userJpaRepository.findById(id);
+
+        return new ResponseEntity <Optional<UserDTO>>(user, HttpStatus.OK);
     }
 }
