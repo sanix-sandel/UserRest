@@ -73,4 +73,11 @@ public class UserRegistrationRestController {
         return new ResponseEntity<UserDTO>(currentUser, HttpStatus.OK);
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<UserDTO> deleteUser(@PathVariable("id") final Long id){
+        UserDTO user=userService.findById(id);
+        userJpaRepository.delete(user);
+        return new ResponseEntity<UserDTO>(HttpStatus.NO_CONTENT);
+    }
 }
