@@ -12,7 +12,7 @@ public class UserDTO {
     private Long id;
 
     @Column(name="NAME")
-    private String name;
+    private String username;
 
     @Column(name="ADDRESS")
     private String address;
@@ -28,12 +28,12 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getAddress() {

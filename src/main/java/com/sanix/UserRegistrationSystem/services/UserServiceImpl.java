@@ -23,5 +23,10 @@ public class UserServiceImpl implements UserService {
         return user.get();
     }
 
+    @Override
+    public UserDTO findByUsername(String name){
+        Optional<UserDTO> user=userJpaRepository.findByUsername(name);
+        return user.get();
+    }
 
 }
